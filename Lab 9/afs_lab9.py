@@ -11,13 +11,19 @@ print(encode("12345555"))
 print(encode("00009962"))
 
 def decode(password):
-    encode = ""
+    encoded = ""
     for i in password:
-        if "0" <= i <= "9":
-            encoded_i = str((int(i) - 3) % 10)
-            encode += encoded_i
-    return encode
-
+        if i == "0":
+            num = 7
+        elif i == "1":
+            num = 9
+        elif i == "2":
+            num = 9
+        else:
+            num = int(i)
+            num -= 3
+        encoded += str(num)
+    return encoded
 #test case
 print(decode("45678888"))
 print(decode("33332295"))
